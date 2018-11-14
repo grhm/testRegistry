@@ -1,0 +1,12 @@
+
+registry:
+  image: registry:2
+  restart: always
+  ports:
+    - "5443:5443"
+  volumes:
+    - "./certs:/certs:ro"
+  environment:
+    REGISTRY_HTTP_ADDR: 0.0.0.0:5443
+    REGISTRY_HTTP_TLS_CERTIFICATE: /certs/domain.crt
+    REGISTRY_HTTP_TLS_KEY: /certs/domain.key
